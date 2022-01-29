@@ -1,0 +1,22 @@
+{
+  "name": "sketchub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node ./example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheClashFruit/sketchub.js.git"
+  },
+  "author": "TheClashFruit",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/TheClashFruit/sketchub.js/issues"
+  },
+  "homepage": "https://github.com/TheClashFruit/sketchub.js#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
