@@ -1,18 +1,19 @@
 require('dotenv').config();
 
-const { Sketchub } = require('../index');
+import { Sketchub } from '../index';
+
 const apiClient = new Sketchub();
 
 apiClient.setApiKey(process.env.API_KEY);
 
-apiClient.getCategories((response) => {
+apiClient.getCategories((response: JSON) => {
   console.log(response);
 });
 
-apiClient.getProjectDetails(1, (response) => {
+apiClient.getProjectDetails(1, (response: JSON) => {
   console.log(response);
 });
 
-apiClient.getProjectList(1, (response) => {
+apiClient.getProjectList(1, (response: JSON) => {
   console.log(response);
 });
