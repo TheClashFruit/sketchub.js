@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/TheClashFruit/sketchub.js#readme",
   "dependencies": {
+    "eslint": "^8.8.0",
     "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5"
   }
 }

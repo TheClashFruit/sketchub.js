@@ -1,0 +1,25 @@
+{
+  "extends": "eslint:recommended",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "jsx": false,
+      "experimentalObjectRestSpread": false
+    }
+  },
+  "env": {
+    "node": true,
+    "commonjs": true
+  },
+  "rules": {
+    "indent": [ "error", 2 ],
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "no-self-compare": "error",
+    "key-spacing": ["error", { "beforeColon": false }],
+    "no-var": "error",
+    "no-use-before-define": ["error", { "variables": false }]
+  }
+}

@@ -20,7 +20,8 @@ class ApiMeta {
 
 ApiMeta.PROJECTS = {
   getCategories: 'https://sketchub.in/api/v3/get_categories',
-  getProjectDetails: 'https://sketchub.in/api/v3/get_project_details'
+  getProjectDetails: 'https://sketchub.in/api/v3/get_project_details',
+  getProjectList: 'https://sketchub.in/api/v3/get_project_list'
 }
 
 ApiMeta.BADGE = {

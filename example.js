@@ -1,4 +1,4 @@
-const { Sketchub, ApiMeta } = require('./index');
+const { Sketchub } = require('./index');
 const apiClient = new Sketchub();
 
 apiClient.setApiKey('api_key');

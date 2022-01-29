@@ -79,6 +79,10 @@ class Sketchub {
         } else callback({ error: true });
       });
   }
+
+  getProjectList(callback) {
+    
+  }
 }
 
 module.exports = Sketchub;
