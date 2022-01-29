@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/TheClashFruit/sketchub.js#readme",
   "dependencies": {
+    "dotenv": "^14.3.2",
     "eslint": "^8.8.0",
     "node-fetch": "^2.6.7"
   },
