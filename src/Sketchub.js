@@ -13,7 +13,7 @@ class Sketchub {
     const urlParams = new URLSearchParams();
     urlParams.append('api_key', this.apiKey);
 
-    fetch(ApiMeta.PROJECTS.getCategories, { method: 'POST', body: urlParams })
+    fetch(ApiMeta.URLS.getCategories, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
         if(data.status == 'success') {
@@ -24,7 +24,7 @@ class Sketchub {
               id: category.id,
               icon: category.category_icon,
               name: category.category_name,
-              projects: category.total_projects
+              URLS: category.total_URLS
             });
           });
 
@@ -38,7 +38,7 @@ class Sketchub {
     urlParams.append('api_key', this.apiKey);
     urlParams.append('project_id', id);
 
-    fetch(ApiMeta.PROJECTS.getProjectDetails, { method: 'POST', body: urlParams })
+    fetch(ApiMeta.URLS.getProjectDetails, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
         if(data.status == 'success') {
@@ -78,12 +78,12 @@ class Sketchub {
       });
   }
 
-  getProjectList(page, callback) {
+  async getProjectList(page, callback) {
     const urlParams = new URLSearchParams();
     urlParams.append('api_key', this.apiKey);
     urlParams.append('page_number', page);
 
-    fetch(ApiMeta.PROJECTS.getProjectList, { method: 'POST', body: urlParams })
+    fetch(ApiMeta.URLS.getProjectList, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
         if(data.status == 'success') {
@@ -122,6 +122,31 @@ class Sketchub {
           });
 
           callback({ error: false, data: { totalPages: data.total_pages, projects: projects } });
+        } else callback({ error: true, message: data.message });
+      });
+  }
+
+  async getAnnouncements(callback) {
+    const urlParams = new URLSearchParams();
+    urlParams.append('api_key', this.apiKey);
+
+    fetch(ApiMeta.URLS.getAnnouncements, { method: 'POST', body: urlParams })
+      .then(response => response.json())
+      .then(async data => {
+        if(data.status == 'success') {
+          let announcements = [];
+
+          data.news.forEach(announcement => {
+            announcements.push({
+              id: announcement.id,
+              title: announcement.title,
+              message: announcement.message,
+              date: announcement.timestamp,
+              image: announcement.image
+            });
+          });
+
+          callback({ error: false, data: announcements });
         } else callback({ error: true, message: data.message });
       });
   }

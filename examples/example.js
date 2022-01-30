@@ -16,3 +16,7 @@ apiClient.getProjectDetails(1, (response) => {
 apiClient.getProjectList(1, (response) => {
   console.log(response);
 });
+
+apiClient.getAnnouncements((response) => {
+  console.log(response);
+});

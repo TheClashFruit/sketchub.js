@@ -20,6 +20,7 @@
     "no-self-compare": "error",
     "key-spacing": ["error", { "beforeColon": false }],
     "no-var": "error",
-    "no-use-before-define": ["error", { "variables": false }]
+    "no-use-before-define": ["error", { "variables": false }],
+    "requireConfigFile": false
   }
 }

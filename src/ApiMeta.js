@@ -18,10 +18,11 @@ class ApiMeta {
   }
 }
 
-ApiMeta.PROJECTS = {
+ApiMeta.URLS = {
   getCategories: 'https://sketchub.in/api/v3/get_categories',
   getProjectDetails: 'https://sketchub.in/api/v3/get_project_details',
-  getProjectList: 'https://sketchub.in/api/v3/get_project_list'
+  getProjectList: 'https://sketchub.in/api/v3/get_project_list',
+  getAnnouncements: 'https://sketchub.in/api/v3/get_news',
 }
 
 ApiMeta.BADGE = {
