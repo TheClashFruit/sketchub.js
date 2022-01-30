@@ -33,6 +33,33 @@ class Sketchub {
       });
   }
 
+  async getProjectTypes(callback) {
+    const urlParams = new URLSearchParams();
+    urlParams.append('api_key', this.apiKey);
+
+    fetch(ApiMeta.URLS.getProjectTypes, { method: 'POST', body: urlParams })
+      .then(response => response.json())
+      .then(async data => {
+        if(data.status == 'success') {
+          let categories = [];
+
+          await data.categories.forEach(dataForEach => {
+            categories.push({
+              id: dataForEach.id,
+              title: dataForEach.name,
+              name: dataForEach.value,
+              icon: dataForEach.icon,
+              source: dataForEach.is_source_code == 1 ? true : false,
+              projects: dataForEach.total_projects,
+              extension: dataForEach.extensions
+            });
+          });
+
+          callback({ error: false, data: categories });
+        } else callback({ error: true, message: data.message });
+      });
+  }
+
   async getProjectDetails(id, callback) {
     const urlParams = new URLSearchParams();
     urlParams.append('api_key', this.apiKey);
@@ -126,6 +153,8 @@ class Sketchub {
       });
   }
 
+  ///////////////////////////////////////////////
+
   async getAnnouncements(callback) {
     const urlParams = new URLSearchParams();
     urlParams.append('api_key', this.apiKey);
@@ -150,6 +179,21 @@ class Sketchub {
         } else callback({ error: true, message: data.message });
       });
   }
+
+  async getMeta(callback) {
+    const urlParams = new URLSearchParams();
+    urlParams.append('api_key', this.apiKey);
+
+    fetch(ApiMeta.URLS.getMeta, { method: 'POST', body: urlParams })
+      .then(response => response.json())
+      .then(async data => {
+        if(data.status == 'success') {
+          callback({ error: false, data: data });
+        } else callback({ error: true, message: data.message });
+      });
+  }
+
+  ///////////////////////////////////////////////
 }
 
 module.exports = Sketchub;

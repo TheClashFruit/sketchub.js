@@ -1,11 +1,11 @@
 {
   "name": "sketchub.js",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
+  "version": "1.1.0",
+  "description": "An easier way to use Sketchub's api in JavaScript or TypeScript.",
+  "main": "index.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "test": "node ./example.js"
+    "test": "node ./examples/example.js"
   },
   "repository": {
     "type": "git",

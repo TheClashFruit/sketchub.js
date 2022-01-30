@@ -23,6 +23,8 @@ ApiMeta.URLS = {
   getProjectDetails: 'https://sketchub.in/api/v3/get_project_details',
   getProjectList: 'https://sketchub.in/api/v3/get_project_list',
   getAnnouncements: 'https://sketchub.in/api/v3/get_news',
+  getMeta: 'https://sketchub.in/api/v3/get_meta_data.php',
+  getProjectTypes: 'https://sketchub.in/api/v3/get_project_types',
 }
 
 ApiMeta.BADGE = {

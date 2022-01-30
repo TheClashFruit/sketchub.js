@@ -9,6 +9,10 @@ apiClient.getCategories((response) => {
   console.log(response);
 });
 
+apiClient.getProjectTypes((response) => {
+  console.log(response);
+});
+
 apiClient.getProjectDetails(1, (response) => {
   console.log(response);
 });
@@ -18,5 +22,9 @@ apiClient.getProjectList(1, (response) => {
 });
 
 apiClient.getAnnouncements((response) => {
+  console.log(response);
+});
+
+apiClient.getMeta((response) => {
   console.log(response);
 });
