@@ -22,9 +22,14 @@ ApiMeta.URLS = {
   getCategories: 'https://sketchub.in/api/v3/get_categories',
   getProjectDetails: 'https://sketchub.in/api/v3/get_project_details',
   getProjectList: 'https://sketchub.in/api/v3/get_project_list',
+  getProjectTypes: 'https://sketchub.in/api/v3/get_project_types',
+
   getAnnouncements: 'https://sketchub.in/api/v3/get_news',
   getMeta: 'https://sketchub.in/api/v3/get_meta_data.php',
-  getProjectTypes: 'https://sketchub.in/api/v3/get_project_types',
+
+  findUserName: 'https://sketchub.in/api/v3/find_username.php',
+  searchUser: 'https://sketchub.in/api/v3/search_user',
+  getUser: 'https://sketchub.in/api/v3/get_user_profile',
 }
 
 ApiMeta.BADGE = {

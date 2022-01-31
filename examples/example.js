@@ -9,22 +9,30 @@ apiClient.getCategories((response) => {
   console.log(response);
 });
 
-await apiClient.getProjectTypes((response) => {
+apiClient.getProjectTypes((response) => {
   console.log(response);
 });
 
-await apiClient.getProjectDetails(1, (response) => {
+apiClient.getProjectDetails(1, (response) => {
   console.log(response);
 });
 
-await apiClient.getProjectList(1, (response) => {
+apiClient.getProjectList(1, (response) => {
   console.log(response);
 });
 
-await apiClient.getAnnouncements((response) => {
+apiClient.findUserName('Amitoj', (response) => {
   console.log(response);
 });
 
-await apiClient.getMeta((response) => {
+apiClient.getUser('412', (response) => {
+  console.log(response);
+});
+
+apiClient.getAnnouncements((response) => {
+  console.log(response);
+});
+
+apiClient.getMeta((response) => {
   console.log(response);
 });

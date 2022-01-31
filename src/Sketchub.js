@@ -223,6 +223,64 @@ class Sketchub {
   }
 
   ///////////////////////////////////////////////
+
+  async findUserName(username, callback) {
+    const urlParams = new URLSearchParams();
+    urlParams.append('api_key', this.apiKey);
+    urlParams.append('user_name', username);
+    urlParams.append('find_relevant', true);
+
+    fetch(ApiMeta.URLS.findUserName, { method: 'POST', body: urlParams })
+      .then(response => response.json())
+      .then(async data => {
+        if(data.status == 'success') {
+          if(typeof callback === "function") callback({ error: false, data: data.relevant_usernames });
+          else return { error: false, data: data.relevant_usernames };
+        } else callback({ error: true, message: data.message });
+      });
+  }
+
+  async getUser(usernameOrId, callback) {
+    const urlParams = new URLSearchParams();
+    urlParams.append('api_key', this.apiKey);
+
+    if(usernameOrId.match(/^[0-9]+$/)) urlParams.append('user_id', usernameOrId);
+    else urlParams.append('user_name', usernameOrId);
+
+    fetch(ApiMeta.URLS.getUser, { method: 'POST', body: urlParams })
+      .then(response => response.json())
+      .then(async data => {
+        if(data.status == 'success') {
+          let userData = {
+            uid: data.uid,
+            username: data.username,
+            badge: new ApiMeta().badgeFromInt(data.badge),
+            about: data.about,
+            country: {
+              name: data.country,
+              code: data.countryCode
+            },
+            image: data.profilepic,
+            punishment: {
+              banned: data.is_banned == 1 ? true : false,
+              reason: data.ban_reason
+            },
+            stats: {
+              likes: data.total_likes,
+              downloads: data.total_downloads,
+              publicProjects: data.total_public_projects,
+              verifiedProjects: data.total_verified_projects,
+              editorChoiceProjects: data.total_editor_choice_projects
+            }
+          }
+
+          if(typeof callback === "function") callback({ error: false, data: userData });
+          else return { error: false, data: userData };
+        } else callback({ error: true, message: data.message });
+      });
+  }
+
+  // string.match(/^[0-9]+$/)
 }
 
 module.exports = Sketchub;
