@@ -28,7 +28,8 @@ class Sketchub {
             });
           });
 
-          callback({ error: false, data: categories });
+          if(typeof callback === "function") callback({ error: false, data: categories });
+          else return { error: false, data: categories };
         } else callback({ error: true, message: data.message });
       });
   }
@@ -55,7 +56,8 @@ class Sketchub {
             });
           });
 
-          callback({ error: false, data: categories });
+          if(typeof callback === "function") callback({ error: false, data: categories });
+          else return { error: false, data: categories }
         } else callback({ error: true, message: data.message });
       });
   }
@@ -77,7 +79,7 @@ class Sketchub {
           screenshots.push(data.screenshot4);
           screenshots.push(data.screenshot5);
 
-          callback({ 
+          if(typeof callback === "function") callback({ 
             error: false, 
             data: { 
               id: id, 
@@ -101,6 +103,30 @@ class Sketchub {
               }
             } 
           });
+          else return { 
+            error: false, 
+            data: { 
+              id: id, 
+              title: data.title, 
+              description: data.description,
+              changeLog: data.whatsnew,
+              category: data.category,
+              type: data.project_type,
+              screenshots,
+              size: data.project_size,
+              likes: data.likes,
+              comments: data.comments,
+              downloads: data.downloads,
+              verified: data.is_verified == 1 ? true : false,
+              editorsChoice: data.is_editorchoice == 1 ? true : false,
+              published: data.published_timestamp,
+              user: {
+                username: data.user_name,
+                image: data.user_profile_pic,
+                badge: new ApiMeta().badgeFromInt(data.user_badge),
+              }
+            } 
+          };
         } else callback({ error: true, message: data.message });
       });
   }
@@ -148,7 +174,8 @@ class Sketchub {
             });
           });
 
-          callback({ error: false, data: { totalPages: data.total_pages, projects: projects } });
+          if(typeof callback === "function") callback({ error: false, data: { totalPages: data.total_pages, projects: projects } });
+          else return { error: false, data: { totalPages: data.total_pages, projects: projects } };
         } else callback({ error: true, message: data.message });
       });
   }
@@ -175,7 +202,8 @@ class Sketchub {
             });
           });
 
-          callback({ error: false, data: announcements });
+          if(typeof callback === "function") callback({ error: false, data: announcements });
+          else return { error: false, data: announcements };
         } else callback({ error: true, message: data.message });
       });
   }
@@ -188,7 +216,8 @@ class Sketchub {
       .then(response => response.json())
       .then(async data => {
         if(data.status == 'success') {
-          callback({ error: false, data: data });
+          if(typeof callback === "function") callback({ error: false, data: data });
+          else return { error: false, data: data };
         } else callback({ error: true, message: data.message });
       });
   }

@@ -9,22 +9,22 @@ apiClient.getCategories((response) => {
   console.log(response);
 });
 
-apiClient.getProjectTypes((response) => {
+await apiClient.getProjectTypes((response) => {
   console.log(response);
 });
 
-apiClient.getProjectDetails(1, (response) => {
+await apiClient.getProjectDetails(1, (response) => {
   console.log(response);
 });
 
-apiClient.getProjectList(1, (response) => {
+await apiClient.getProjectList(1, (response) => {
   console.log(response);
 });
 
-apiClient.getAnnouncements((response) => {
+await apiClient.getAnnouncements((response) => {
   console.log(response);
 });
 
-apiClient.getMeta((response) => {
+await apiClient.getMeta((response) => {
   console.log(response);
 });
