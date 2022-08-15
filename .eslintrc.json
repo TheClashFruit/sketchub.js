@@ -7,7 +7,8 @@
     "ecmaFeatures": {
       "jsx": false,
       "experimentalObjectRestSpread": false
-    }
+    },
+    "requireConfigFile": false
   },
   "env": {
     "node": true,
@@ -20,7 +21,6 @@
     "no-self-compare": "error",
     "key-spacing": ["error", { "beforeColon": false }],
     "no-var": "error",
-    "no-use-before-define": ["error", { "variables": false }],
-    "requireConfigFile": false
+    "no-use-before-define": ["error", { "variables": false }]
   }
 }

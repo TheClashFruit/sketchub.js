@@ -1,6 +1,7 @@
-require('dotenv').config();
-
+import { config }   from 'dotenv';
 import { Sketchub } from '../index';
+
+config();
 
 const apiClient = new Sketchub();
 

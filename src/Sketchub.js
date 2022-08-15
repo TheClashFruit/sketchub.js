@@ -27,8 +27,8 @@ class Sketchub {
     fetch(ApiMeta.URLS.getCategories, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
-        if(data.status == 'success') {
-          let categories = []
+        if(data.status === 'success') {
+          let categories = [];
 
           await data.categories.forEach(category => {
             categories.push({
@@ -39,7 +39,7 @@ class Sketchub {
             });
           });
 
-          if(typeof callback === "function") callback({ error: false, data: categories });
+          if(typeof callback === 'function') callback({ error: false, data: categories });
           else return { error: false, data: categories };
         } else callback({ error: true, message: data.message });
       });
@@ -63,7 +63,7 @@ class Sketchub {
     fetch(ApiMeta.URLS.getProjectTypes, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
-        if(data.status == 'success') {
+        if(data.status === 'success') {
           let categories = [];
 
           await data.categories.forEach(dataForEach => {
@@ -72,14 +72,14 @@ class Sketchub {
               title: dataForEach.name,
               name: dataForEach.value,
               icon: dataForEach.icon,
-              source: dataForEach.is_source_code == 1 ? true : false,
+              source: dataForEach.is_source_code === 1,
               projects: dataForEach.total_projects,
               extension: dataForEach.extensions
             });
           });
 
-          if(typeof callback === "function") callback({ error: false, data: categories });
-          else return { error: false, data: categories }
+          if(typeof callback === 'function') callback({ error: false, data: categories });
+          else return { error: false, data: categories };
         } else callback({ error: true, message: data.message });
       });
   }
@@ -104,7 +104,7 @@ class Sketchub {
     fetch(ApiMeta.URLS.getProjectDetails, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
-        if(data.status == 'success') {
+        if(data.status === 'success') {
           let screenshots = [];
 
           screenshots.push(data.screenshot1);
@@ -113,7 +113,7 @@ class Sketchub {
           screenshots.push(data.screenshot4);
           screenshots.push(data.screenshot5);
 
-          if(typeof callback === "function") callback({ 
+          if(typeof callback === 'function') callback({ 
             error: false, 
             data: { 
               id: id, 
@@ -127,8 +127,8 @@ class Sketchub {
               likes: data.likes,
               comments: data.comments,
               downloads: data.downloads,
-              verified: data.is_verified == 1 ? true : false,
-              editorsChoice: data.is_editorchoice == 1 ? true : false,
+              verified: data.is_verified === 1,
+              editorsChoice: data.is_editorchoice === 1,
               published: data.published_timestamp,
               user: {
                 username: data.user_name,
@@ -151,8 +151,8 @@ class Sketchub {
               likes: data.likes,
               comments: data.comments,
               downloads: data.downloads,
-              verified: data.is_verified == 1 ? true : false,
-              editorsChoice: data.is_editorchoice == 1 ? true : false,
+              verified: data.is_verified === 1,
+              editorsChoice: data.is_editorchoice === 1,
               published: data.published_timestamp,
               user: {
                 username: data.user_name,
@@ -185,7 +185,7 @@ class Sketchub {
     fetch(ApiMeta.URLS.getProjectList, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
-        if(data.status == 'success') {
+        if(data.status === 'success') {
           let projects = [];
 
           await data.projects.forEach(dataForEach => {
@@ -209,8 +209,8 @@ class Sketchub {
               likes: dataForEach.likes,
               comments: dataForEach.comments,
               downloads: dataForEach.downloads,
-              verified: dataForEach.is_verified == 1 ? true : false,
-              editorsChoice: dataForEach.is_editorchoice == 1 ? true : false,
+              verified: dataForEach.is_verified === 1,
+              editorsChoice: dataForEach.is_editorchoice === 1,
               published: dataForEach.published_timestamp,
               user: {
                 username: dataForEach.user_name,
@@ -220,7 +220,7 @@ class Sketchub {
             });
           });
 
-          if(typeof callback === "function") callback({ error: false, data: { totalPages: data.total_pages, projects: projects } });
+          if(typeof callback === 'function') callback({ error: false, data: { totalPages: data.total_pages, projects: projects } });
           else return { error: false, data: { totalPages: data.total_pages, projects: projects } };
         } else callback({ error: true, message: data.message });
       });
@@ -246,7 +246,7 @@ class Sketchub {
     fetch(ApiMeta.URLS.getAnnouncements, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
-        if(data.status == 'success') {
+        if(data.status === 'success') {
           let announcements = [];
 
           data.news.forEach(announcement => {
@@ -259,7 +259,7 @@ class Sketchub {
             });
           });
 
-          if(typeof callback === "function") callback({ error: false, data: announcements });
+          if(typeof callback === 'function') callback({ error: false, data: announcements });
           else return { error: false, data: announcements };
         } else callback({ error: true, message: data.message });
       });
@@ -283,8 +283,8 @@ class Sketchub {
     fetch(ApiMeta.URLS.getMeta, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
-        if(data.status == 'success') {
-          if(typeof callback === "function") callback({ error: false, data: data });
+        if(data.status === 'success') {
+          if(typeof callback === 'function') callback({ error: false, data: data });
           else return { error: false, data: data };
         } else callback({ error: true, message: data.message });
       });
@@ -313,8 +313,8 @@ class Sketchub {
     fetch(ApiMeta.URLS.findUserName, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
-        if(data.status == 'success') {
-          if(typeof callback === "function") callback({ error: false, data: data.relevant_usernames });
+        if(data.status === 'success') {
+          if(typeof callback === 'function') callback({ error: false, data: data.relevant_usernames });
           else return { error: false, data: data.relevant_usernames };
         } else callback({ error: true, message: data.message });
       });
@@ -347,7 +347,7 @@ class Sketchub {
     fetch(ApiMeta.URLS.getUser, { method: 'POST', body: urlParams })
       .then(response => response.json())
       .then(async data => {
-        if(data.status == 'success') {
+        if(data.status === 'success') {
           let userData = {
             uid: data.uid,
             username: data.username,
@@ -359,7 +359,7 @@ class Sketchub {
             },
             image: data.profilepic,
             punishment: {
-              banned: data.is_banned == 1 ? true : false,
+              banned: data.is_banned === 1,
               reason: data.ban_reason
             },
             stats: {
@@ -369,9 +369,9 @@ class Sketchub {
               verifiedProjects: data.total_verified_projects,
               editorChoiceProjects: data.total_editor_choice_projects
             }
-          }
+          };
 
-          if(typeof callback === "function") callback({ error: false, data: userData });
+          if(typeof callback === 'function') callback({ error: false, data: userData });
           else return { error: false, data: userData };
         } else callback({ error: true, message: data.message });
       });

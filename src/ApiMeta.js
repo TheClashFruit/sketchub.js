@@ -5,9 +5,9 @@ class ApiMeta {
     40: 'Moderator',
     20: 'Vip',
     15: 'Premuim',
-    5:  'Verified',
-    0:  'User'
-  }
+    5: 'Verified',
+    0: 'User'
+  };
 
   badgeFromInt(int) {
     return this.badgeReverse[int];
@@ -30,16 +30,16 @@ ApiMeta.URLS = {
   findUserName: 'https://sketchub.in/api/v3/find_username.php',
   searchUser: 'https://sketchub.in/api/v3/search_user',
   getUser: 'https://sketchub.in/api/v3/get_user_profile',
-}
+};
 
 ApiMeta.BADGE = {
   Developer: 60,
   Admin: 50,
   Moderator: 40,
   Vip: 20,
-  Premuim: 15,
+  Premium: 15,
   Verified: 5,
   User: 0
-}
+};
 
 module.exports = ApiMeta;
